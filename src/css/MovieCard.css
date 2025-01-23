@@ -1,0 +1,40 @@
+.movie-card{
+  width: 300px;
+}
+
+.movie-poster{
+  height: 450px;
+  width: inherit;
+}
+
+.movie-card:hover{
+  .favorite-btn{
+    position: relative;
+    display: inline-block;
+    left: 235px;
+    border: none;
+    border-radius: 50px;
+    top: -445px;
+  }
+  
+  img{
+    opacity: 0.8;
+  }
+  cursor: pointer;
+}
+
+img{
+  width: inherit;
+  border-radius: 10px;
+}
+
+.favorite-btn{
+  display: none;
+  position: relative;
+  left: 235px;
+  top: -445px;
+}
+
+.active{
+  color: red;
+}

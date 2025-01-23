@@ -1,0 +1,29 @@
+.home{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies-grid{
+  display: flex;
+  align-items: space-evenly;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.favorites-empty{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgb(69, 67, 67);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header{
+  color: red;
+}
