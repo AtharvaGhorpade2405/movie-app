@@ -3,11 +3,12 @@ import { BrowserRouter } from "react-router-dom";
 import "./css/index.css";
 import App from "./App.jsx";
 import { StrictMode } from "react";
+import { MovieContextProvider } from "./store/movie-store.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+    <MovieContextProvider>
       <App />
-    </BrowserRouter>
-  </StrictMode>
+    </MovieContextProvider>
+  </BrowserRouter>
 );

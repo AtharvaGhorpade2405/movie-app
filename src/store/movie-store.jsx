@@ -15,7 +15,9 @@ export const MovieContextProvider = ({ children }) => {
   }, [favMovies]);
 
   const addToFav = (movie) => {
-    if (!favMovies.includes(movie)) setFavMovies([...favMovies, movie]);
+    if (!favMovies.some((fav) => fav.id === movie.id)) {
+      setFavMovies([...favMovies, movie]);
+    }
   };
 
   function isFav(movieId) {
