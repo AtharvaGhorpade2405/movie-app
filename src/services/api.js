@@ -1,5 +1,7 @@
+const API_BASE_URL = "https://movie-monkey-server-1.onrender.com";
+
 export const getPopularMovies = async () => {
-  const url = "http://localhost:3000/movies/popular"; // Call your backend server
+  const url = `${API_BASE_URL}/movies/popular`; // Call your backend server
   const options = {
     method: "GET",
     headers: {
@@ -14,7 +16,7 @@ export const getPopularMovies = async () => {
 
 
 export const getMovies = async (searchQuery) => {
-  const url = `http://localhost:3000/movies/search?query=${searchQuery}`;
+  const url = `${API_BASE_URL}/movies/search?query=${searchQuery}`;
   const options = {
     method: "GET",
     headers: {
