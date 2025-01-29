@@ -1,25 +1,37 @@
-const API_BASE_URL = "https://movie-monkey-server-1.onrender.com";
-const BACKEND_API_KEY = import.meta.env.VITE_BACKEND_API_KEY; // Ensure this is defined correctly
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL; // Use .env for backend URL
 
 export const getPopularMovies = async () => {
-  const url = `${API_BASE_URL}/movies/popular`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      "x-api-key": BACKEND_API_KEY,
-    },
-  };
-
   try {
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
-    }
+    const response = await fetch(`${API_BASE_URL}/movies/popular`, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
+    });
+
+    if (!response.ok) throw new Error("Failed to fetch popular movies");
     const data = await response.json();
-    return data;
+    return data.results;
   } catch (error) {
-    console.error("Failed to fetch popular movies:", error);
-    throw error;
+    console.error(error);
+    return [];
+  }
+};
+
+export const getMovies = async (searchQuery) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/movies/search?query=${encodeURIComponent(searchQuery)}`, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
+    });
+
+    if (!response.ok) throw new Error("Failed to fetch search results");
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error(error);
+    return [];
   }
 };
