@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL; // Use .env for backend URL
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "https://movie-monkey-server-1.onrender.com"; // Use .env for backend URL
 
 export const getPopularMovies = async () => {
   try {
